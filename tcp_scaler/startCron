@@ -1,0 +1,22 @@
+#!/bin/ksh
+# to start the server if it was not running.
+# use cron
+TCP_DIR=/adaqfs/home/sbs-onl/logentry_scripts/halla/tcp
+LOG_FILE=$TCP_DIR/log/tcp_server.log
+export EXPID=SBSDAQ
+
+# pipe stderr and stdout to $LOG_FILE so that CODA runs happily
+exec 1<&-
+exec 2<&-
+exec 1<>$LOG_FILE
+exec 2>&1
+
+
+if(ps -ef|grep xser|grep -v grep|grep -v emacs>/dev/null); then
+#   echo "exit, no xser"
+   exit
+else
+   ${TCP_DIR}/restartScServ &
+fi
+
+

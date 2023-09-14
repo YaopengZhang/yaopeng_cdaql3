@@ -1,0 +1,55 @@
+Simple client/server code to test concepts of talking to fadc_scalers
+
+This code has a server which generates fake 64bit data and a client
+with prints it.
+
+Bob Michaels
+Sept 2023
+
+Simplest instructions.
+
+     The server should start from the same window where you
+     start rcgui.  Ideally this would be part of startcoda.
+
+  Here is the server
+
+       /adaqfs/home/sbs-onl/logentry_scripts/halla/tcp/restartScServ
+
+  The client is used in scripts that need to run scripts.  
+
+  I'll document it better later, but for now:
+
+      https://logbooks.jlab.org/entry/3918307
+      https://logbooks.jlab.org/entry/3918398
+
+
+To compile
+
+      ./makeit.com
+
+Code is
+
+         clientScaler.c   the client
+
+         serverScaler.c   the server.
+
+The server could run on a hcvme* or npsvme* computer, but
+maybe test it on hcvme02 first.  Does no harm.
+
+To run
+
+      ./xser
+
+You have to be careful not to run it twice, so maybe do this
+
+      ./restartScServ
+
+The client runs on cdaql* and can run like this
+
+      ./xclie hcvme02 getdat
+
+hcvme02 is where the server runs
+getdat is an argument that current says "get some data"
+
+
+

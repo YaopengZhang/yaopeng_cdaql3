@@ -1,0 +1,29 @@
+1966 3/4
+
+ elecs elreal from 1966: 4431 4449 0.995954
+ elecs elclean from 1966: 4388 4449 0.986289
+ elecs ello from 1966: 4405 4449 0.99011
+ elecs elhi from 1966: 4414 4449 0.992133
+ elecs ellolo from 1966: 4441 4449 0.998202
+ elecs prlo from 1966: 4436 4449 0.997078
+ elecs prhi from 1966: 4422 4449 0.993931
+
+1967 ELREAL
+
+ elecs elreal from 1967: 10490 10490 1
+ elecs elclean from 1967: 10357 10490 0.987321
+ elecs ello from 1967: 10404 10490 0.991802
+ elecs elhi from 1967: 10451 10490 0.996282
+ elecs ellolo from 1967: 10475 10490 0.99857
+ elecs prlo from 1967: 10467 10490 0.997807
+ elecs prhi from 1967: 10456 10490 0.996759
+
+1968 ELCLEAN
+
+ elecs elreal from 1968: 15246 15246 1
+ elecs elclean from 1968: 15246 15246 1
+ elecs ello from 1968: 15246 15246 1
+ elecs elhi from 1968: 15246 15246 1
+ elecs ellolo from 1968: 15246 15246 1
+ elecs prlo from 1968: 15245 15246 0.999934
+ elecs prhi from 1968: 15246 15246 1
