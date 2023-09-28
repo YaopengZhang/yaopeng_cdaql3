@@ -1,0 +1,155 @@
+hcNGC:bgaOut1                   -0.5025                         # SHMS NGC Neon Fraction [%]
+hcnps_intlk_chiller_CZ_read_chiller_temp  20.07                           # NPS Temperature of Crystals 
+hcnps_intlk_chiller_CZ_read_set_temp  20                              # NPS Temperature of Crystals 
+hcnps_intlk_chiller_CZ_set_temp  20                              # NPS Temperature of Crystals 
+hcnps_intlk_chiller_EZ_read_chiller_temp  20.03                           # NPS Temperature of Crystals 
+hcnps_intlk_chiller_EZ_read_set_temp  20                              # NPS Temperature of Crystals 
+hcnps_intlk_chiller_EZ_set_temp  20                              # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_back_1         23.261                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_10        19.099                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_11        17.483                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_12        16.448                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_13        15.657                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_14        16.45                           # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_15        18.57                           # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_16        22.078                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_17        22.391                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_18        18.017                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_19        15.003                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_2         22.452                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_20        13.073                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_21        12.584                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_22        13.488                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_23        16.394                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_24        21.339                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_25        17.73                           # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_26        12.552                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_27        12.621                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_28        21.246                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_29        22.643                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_3         21.952                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_30        14.459                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_31        11.967                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_32        15.815                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_33        22.386                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_34        18.172                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_35        15.106                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_36        13.301                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_37        12.895                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_38        14.047                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_39        16.851                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_4         21.804                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_40        21.698                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_41        22.953                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_42        19.785                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_43        18.026                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_44        16.858                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_45        16.729                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_46        17.063                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_47        18.96                           # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_48        22.379                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_49        23.383                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_5         21.532                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_50        23.082                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_51        23.151                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_52        22.96                           # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_53        22.936                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_54        22.884                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_55        22.95                           # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_56        23.442                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_6         22.103                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_7         22.484                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_8         23.112                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_back_9         22.738                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_1        23.001                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_10       21.427                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_11       20.348                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_12       19.663                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_13       19.562                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_14       20.083                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_15       20.997                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_16       22.508                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_17       22.705                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_18       20.58                           # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_19       19.041                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_2        22.774                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_20       18.228                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_21       17.845                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_22       18.438                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_23       19.91                           # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_24       22.153                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_25       22.696                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_26       20.348                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_27       18.737                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_28       17.522                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_29       17.302                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_3        22.539                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_30       18.043                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_31       19.646                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_32       22.035                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_33       22.688                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_34       20.57                           # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_35       18.977                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_36       18.08                           # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_37       17.877                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_38       18.532                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_39       20.056                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_4        22.407                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_40       22.161                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_41       22.849                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_42       21.469                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_43       20.453                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_44       19.853                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_45       19.752                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_46       20.167                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_47       21.155                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_48       22.585                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_49       23.013                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_5        22.385                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_50       22.7                            # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_51       22.473                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_52       22.282                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_53       22.358                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_54       22.46                           # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_55       22.722                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_56       23.061                          # NPS Temperature of Crystals 
+hcnps_intlk_cz_t_front_6        22.468                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_7        22.705                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_8        23.026                          # NPS Temperature of Crystals
+hcnps_intlk_cz_t_front_9        22.806                          # NPS Temperature of Crystals
+hel_even_1                      *** not connected               # MHE0L01V Even Setpoint
+hel_even_2                      *** not connected               # MHE0L02H Even Setpoint
+hel_even_3                      *** not connected               # MHE0L03V Even Setpoint
+hel_even_4                      *** not connected               # MHE0L04H Even Setpoint
+hel_mag_status.D                *** not connected               # Hel State Asymmetry
+hel_odd_1                       *** not connected               # MHE0L01V Even Setpoint
+hel_odd_2                       *** not connected               # MHE0L02H Even Setpoint
+hel_odd_3                       *** not connected               # MHE0L03V Even Setpoint
+hel_odd_4                       *** not connected               # MHE0L04H Even Setpoint
+ibcm1                           -0.029002                       # Hall C Beam Current (monitor # 1): careful, this is also in target epics
+ibcm2                           0.013209                        # Hall C Beam Current (monitor # 2): careful, this is also in target epics
+ibcm3H04A                       -0.167394                       # Hall C Beam Current (BCM5) hclog 3466072
+ibcm3H04B                       6.64046                         # Hall C Beam Current (monitor # 3): careful, this is also in target epics
+ibcm3H04C                       -0.394226                       # Hall C Beam Current (BCM7) hclog 3466072
+itov1out                        0.0164797                       # A1 Slit Current
+itov2out                        0.175784                        # A2 Slit Current
+itov3out                        0.0357061                       # Master Slit Current
+itov4out                        0.0201419                       # INJ Faraday cup (PCup, FC1, FC2, Dump) Current
+itov5out                        0.0109865                       # A3 Slit Current
+itov7out                        -0.00823987                     # A4 Slit Current
+iunser                          8.09233                         # Hall C Beam Current (unser)
+laser_a_wavelength              0                               # Hall A laser wavelength nm
+laser_b_wavelength              0                               # Hall B laser wavelength nm
+laser_c_wavelength              0                               # Hall C laser wavelength nm
+pgunFreqDiv:A:frequency         500 MHz                         # Hall A Laser Frequency:  0: 500 MHz, 1: 250 MHz
+pgunFreqDiv:C:frequency         500 MHz                         # Hall C Laser Frequency:  0: 500 MHz, 1: 250 MHz
+psub_aa_pos                     111.569                         # Hall A Laser Attenuator (Hall A Laser Attenuator Setting) --
+psub_ab_pos                     140.019                         # Hall B Laser Attenuator Setting
+psub_ac_pos                     80.108                          # Hall C Laser Attenuator Setting
+psub_cx_pos                     12590                           # Wafer X Stage         (X laser position on cathode) --
+psub_cy_pos                     18700                           # Wafer Y Stage         (Y laser position on cathode) --
+psub_pl_pos                     69.9825                         # Rotating waveplate (Rotatable Half Wave Plate Setting) --
+qe_halla                        0.3375                          # Hall A Quantum Efficiency %
+qe_hallb                        0.3313                          # Hall B Quantum Efficiency %
+qe_hallc                        0.3292                          # Hall C Quantum Efficiency %
+scaler_calc1                    0.0249393                       # Hall B Beam Current (Faraday Cup) nA

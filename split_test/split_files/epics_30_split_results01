@@ -1,0 +1,190 @@
+IPM3H07A.XIFG                   3400                            # 
+IPM3H07A.XPOF                   1.49863                         # BPM offset
+IPM3H07A.XPOS                   0                               # 
+IPM3H07A.XRAW                   0                               # BPM RAW
+IPM3H07A.XSOF                   -0.01                           # 
+IPM3H07A.YIFG                   3400                            # 
+IPM3H07A.YPOF                   0.00696254                      # 
+IPM3H07A.YPOS                   0                               # 
+IPM3H07A.YRAW                   0                               # 
+IPM3H07A.YSOF                   0.27                            # 
+IPM3H07B.FSUM                   412                             # X+ wire
+IPM3H07B.RSUM                   375                             # Y- wire
+IPM3H07B.SSUM                   384                             # Y+ wire
+IPM3H07B.TSUM                   400                             # X- wire
+IPM3H07B.XIFG                   3400                            # 
+IPM3H07B.XPOF                   0.612682                        # 
+IPM3H07B.XPOS                   0                               # 
+IPM3H07B.XRAW                   0                               # 
+IPM3H07B.XSOF                   -0.01                           # 
+IPM3H07B.YIFG                   3400                            # 
+IPM3H07B.YPOF                   -0.347665                       # 
+IPM3H07B.YPOS                   0                               # 
+IPM3H07B.YRAW                   0                               # 
+IPM3H07B.YSOF                   0.22                            # 
+IPM3H07C.FSUM                   712                             # X+ wire
+IPM3H07C.RSUM                   361                             # Y- wire
+IPM3H07C.SSUM                   586                             # Y+ wire
+IPM3H07C.TSUM                   600                             # X- wire
+IPM3H07C.XIFG                   3400                            # 
+IPM3H07C.XPOF                   0.499183                        # 
+IPM3H07C.XPOS                   0                               # 
+IPM3H07C.XRAW                   0                               # 
+IPM3H07C.XSOF                   -0.17                           # 
+IPM3H07C.YIFG                   3400                            # 
+IPM3H07C.YPOF                   0.00843053                      # 
+IPM3H07C.YPOS                   0                               # 
+IPM3H07C.YRAW                   0                               # 
+IPM3H07C.YSOF                   -0.16                           # 
+IPM3H08.FSUM                    20265                           # X+ wire
+IPM3H08.RSUM                    25357                           # Y- wire
+IPM3H08.SSUM                    25568                           # Y+ wire
+IPM3H08.TSUM                    20277                           # X- wire
+IPM3H08.XPOF                    -9999                           # big BPM at downstream
+IPM3H08.XPOS                    0                               # big BPM at downstream
+IPM3H08.XRAW                    0                               # big BPM at downstream
+IPM3H08.XROT                    -0.0189748                      # X rotation
+IPM3H08.XSOF                    14                              # big BPM at downstream
+IPM3H08.YPOF                    -9999                           # big BPM at downstream
+IPM3H08.YPOS                    0                               # big BPM at downstream
+IPM3H08.YRAW                    0                               # big BPM at downstream
+IPM3H08.YROT                    0.252231                        # Y rotation
+IPM3H08.YSOF                    -20                             # big BPM at downstream
+IPM3H09.FSUM                    25612                           # X+ wire
+IPM3H09.RSUM                    30990                           # Y- wire
+IPM3H09.SSUM                    30946                           # Y+ wire
+IPM3H09.TSUM                    25655                           # X- wire
+IPM3H09.XIFG                    200                             # big BPM at downstream
+IPM3H09.XPOF                    -9999                           # big BPM at downstream
+IPM3H09.XPOS                    0                               # big BPM at downstream
+IPM3H09.XRAW                    0                               # big BPM at downstream
+IPM3H09.XROT                    -0.0501996                      # X rotation
+IPM3H09.XSOF                    14                              # big BPM at downstream
+IPM3H09.YIFG                    200                             # big BPM at downstream
+IPM3H09.YPOF                    -9999                           # big BPM at downstream
+IPM3H09.YPOS                    0                               # big BPM at downstream
+IPM3H09.YRAW                    0                               # big BPM at downstream
+IPM3H09.YROT                    -0.0461532                      # Y rotation
+IPM3H09.YSOF                    -20                             # big BPM at downstream
+IPM3P02A.XIFG                   3200                            # Compton
+IPM3P02A.XPOS                   0                               # Hall-C Compton Control,
+IPM3P02A.XSOF                   -0.48                           # Compton
+IPM3P02A.YIFG                   3200                            # Compton
+IPM3P02A.YPOS                   0                               # Hall-C Compton Control,
+IPM3P02A.YSOF                   -0.4                            # Compton
+IPM3P02B.XIFG                   3200                            # 
+IPM3P02B.XPOS                   0                               # Hall-C Compton Control,
+IPM3P02B.XSOF                   0                               # Compton
+IPM3P02B.YIFG                   3200                            # 
+IPM3P02B.YPOS                   0                               # Hall-C Compton Control,
+IPM3P02B.YSOF                   0.07                            # Compton
+ISL0I04DT                       In                              # Master Slit Setting
+IWF1I04:polSet                  Positive                        # Vertical Wien Angle Polarity
+IWF1I06:polSet                  Negative                        # Horizontal Wien Angle Polarity
+MBE3H05                         115.35                          # Beamline and Moller magnets
+MBE3H05.BDL                     234992                          # Beamline and Moller magnets
+MBE3H05M                        120.677                         # Beamline and Moller magnets
+MBE3H07                         *** not connected               # Beamline and Moller magnets
+MBE3H07.BDL                     *** not connected               # Beamline and Moller magnets
+MBE3H07M                        *** not connected               # Beamline and Moller magnets
+MBSY3C                          4                               # Beamline and Moller magnets
+MBSY3C.BDL                      -2.63163e+06                    # Beamline and Moller magnets
+MBSY3CM                         0.00885023                      # Beamline and Moller magnets
+MFG1I04A.BDL                    98.9604                         # First Solenoid BDL (G-cm)
+MFG1I04B.BDL                    -98.9602                        # Second Solenoid BDL (G-cm)
+MFGANGLE                        0.000100612                     # Solenoids Angle (MFGANGLE)
+MOFC1DELTA                      1306.02                         # Difference between Machine Frequency - 499MHz (in Hz)
+MOFC1FREQ                       4.99001e+08                     # Machine Frequency (MHz)
+MQE3M03                         338.997                         # Beamline and Moller magnets
+MQE3M03.BDL                     56141.7                         # Beamline and Moller magnets
+MQE3M03M                        338.985                         # Beamline and Moller magnets
+MQF3M01                         161.236                         # Beamline and Moller magnets
+MQF3M01.BDL                     -19889.2                        # Beamline and Moller magnets
+MQF3M01M                        -161.473                        # Beamline and Moller magnets
+MWF0I02.BDL                     *** not connected               # Horizontal Wien BDL (G-cm)
+MWF1I04.BDL                     0                               # Vertical Wien BDL (G-cm)
+MWF1I06.BDL                     -1776.8                         # Horizontal Wien BDL (G-cm)
+OXSS_MGFD                       *** not connected               # Persistent Field (T)
+OXSS_RDF                        *** not connected               # Leads Field
+PWF1I04:spinCalc                0                               # Vertical Wien Angle
+PWF1I04N:enabled                Disabled                        # Vertical Wien Negative Voltage Supply (V)
+PWF1I04N:readVoltSet            0                               # Vertical Wien Negative Voltage Supply (V)
+PWF1I04P:enabled                Disabled                        # Vertical Wien Positive Voltage Supply (V)
+PWF1I04P:readVoltSet            0                               # Vertical Wien Positive Voltage Supply (V)
+PWF1I06:spinCalc                -48.3                           # Horizontal Wien Angle
+PWF1I06N:enabled                Enabled                         # Horizontal Wien Negative Voltage Supply (V)
+PWF1I06N:readVoltSet            8569.91                         # Horizontal Wien Negative Voltage Supply (V)
+PWF1I06P:enabled                Enabled                         # Horizontal Wien Positive Voltage Supply (V)
+PWF1I06P:readVoltSet            8569.91                         # Horizontal Wien Positive Voltage Supply (V)
+Phi_FG                          0                               # Solenoids Angle (Phi_FG)
+R00PGSET                        4.3                             # Prebuncher Setting
+RTPAPOSUCNT                     0                               # RTP Cell V APOS U
+RTPAPOSVCNT                     0                               # RTP Cell V APOS V
+RTPDPOSUCNT                     0                               # RTP Cell V DPOS U
+RTPDPOSVCNT                     0                               # RTP Cell V DPOS V
+RTPPITA1CNT                     -3989.51                        # RTP Cell V PITA 1
+RTPPITA2CNT                     -3989.51                        # RTP Cell V PITA 2
+RTPQW1CNT                       12700                           # RTP Cell V L/4 1 
+RTPQW2CNT                       12700                           # RTP Cell V L/4 2
+SHMSGasCherenkov:Pressure       -18.386                         # SHMS Heavy Gas Cherenkov pressure [psig]
+SHMSGasCherenkov:Temperature    nan                             # SHMS Heavy Gas Cherenkov temp [C]
+SHMS_Momentum                   0                               # SHMS Momentum (set by go_magnet_SHMS_current)
+SMRPOSA                         -1.01318                        # Hall A Slit Position (Hall A Chopper Slit Readback) --
+SMRPOSB                         -1.00391                        # Hall B Chopper Slit Position Readback
+SMRPOSC                         -1.00439                        # Hall C Chopper Slit Position Readback
+TARGPOS                         -1.3963                         # Target position X
+VWienAngle                      0                               # Vertical Wien Angle
+WienAngle                       0                               # Wien Filter Angle Setting  degrees
+cdipc_xpos                      0                               # Pockels Cell X Stage
+cdipc_ypos                      0                               # Pockels Cell Y Stage
+ecDI_B_Set_NMR                  *** not connected               # HMS dipole NMR setpoint
+ecDI_B_True_NMR                 *** not connected               # HMS dipole NMR readback
+ecDI_I_True                     *** not connected               # HMS magnet rs232 readback current
+ecDI_I_coarse                   *** not connected               # HMS magnet analog readback current
+ecDI_Set_Current                *** not connected               # HMS magnet set current
+ecHMS_Angle                     *** not connected               # HMS Angle Readback
+ecP_HMS                         *** not connected               # HMS dipole momentum setting
+ecQ1_I_True                     *** not connected               # HMS magnet rs232 readback current
+ecQ1_I_coarse                   *** not connected               # HMS magnet analog readback current
+ecQ1_Set_Current                *** not connected               # HMS magnet set current
+ecQ2_I_True                     *** not connected               # HMS magnet rs232 readback current
+ecQ2_I_coarse                   *** not connected               # HMS magnet analog readback current
+ecQ2_Set_Current                *** not connected               # HMS magnet set current
+ecQ3_I_True                     *** not connected               # HMS magnet rs232 readback current
+ecQ3_I_coarse                   *** not connected               # HMS magnet analog readback current
+ecQ3_Set_Current                *** not connected               # HMS magnet set current
+ecSDI_B_Set_NMR                 *** not connected               # SHMS dipole NMR setpoint
+ecSDI_B_True_NMR                *** not connected               # SHMS dipole NMR readback
+ecSDI_HP                        *** not connected               # SHMS HP raw Hall probe value
+ecSDI_I_True                    *** not connected               # SHMS RS232 current readback
+ecSDI_I_coarse                  *** not connected               # SHMS analog current readback
+ecSDI_Set_Current               *** not connected               # SHMS current setpoints
+ecSHB_HP                        *** not connected               # SHMS HB raw Hall probe value
+ecSHB_HallP                     *** not connected               # SHMS Hall probes HB (corrected)
+ecSHB_I_True                    *** not connected               # SHMS RS232 current readback
+ecSHB_I_coarse                  *** not connected               # SHMS analog current readback
+ecSHB_Set_Current               *** not connected               # SHMS current setpoints
+ecSHMS_Angle                    *** not connected               # SHMS Angle Readback
+ecSP_SHMS                       *** not connected               # SHMS momentum setpoint
+ecSQ1_HP                        *** not connected               # SHMS Q1 raw Hall probe value
+ecSQ1_HallP                     *** not connected               # SHMS Hall probes Q1 (corrected)
+ecSQ1_I_True                    *** not connected               # SHMS RS232 current readback
+ecSQ1_I_coarse                  *** not connected               # SHMS analog current readback
+ecSQ1_Set_Current               *** not connected               # SHMS current setpoints
+ecSQ2_HP                        *** not connected               # SHMS Q2 raw Hall probe value
+ecSQ2_HallP                     *** not connected               # SHMS Hall probes Q2 (corrected)
+ecSQ2_I_True                    *** not connected               # SHMS RS232 current readback
+ecSQ2_I_coarse                  *** not connected               # SHMS analog current readback
+ecSQ2_Set_Current               *** not connected               # SHMS current setpoints
+ecSQ3_HP                        *** not connected               # SHMS Q3 raw Hall probe value
+ecSQ3_HallP                     *** not connected               # SHMS Hall probes Q3 (corrected)
+ecSQ3_I_True                    *** not connected               # SHMS RS232 current readback
+ecSQ3_I_coarse                  *** not connected               # SHMS analog current readback
+ecSQ3_Set_Current               *** not connected               # SHMS current setpoints
+ecS_Shutter_status              *** not connected               # SHMS Shutter Readback (1=open, 0=unknown/assumed closed)
+hac_bcm_average                 0.0605242                       # Hall A BCM Current uA
+halla_photocurrent              0                               # Hall A photocurrent uA
+halla_transmission              0                               # Hall A Independent Transmission %
+hallb_transmission              0                               # Hall B Independent Transmission %
+hallc_photocurrent              0                               # Hall C photocurrent  uA
+hcBDSPOS                        50034                           # Target type

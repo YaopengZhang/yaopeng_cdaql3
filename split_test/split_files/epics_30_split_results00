@@ -1,0 +1,190 @@
+Wed Sep 20 16:06:05 EDT 2023
+C1068_QDAC01                    1000                            # Pockels Cell POS HV
+C1068_QDAC07                    34700                           # IA Cell Setpoint  Hall A DAC 07 A0
+C1068_QDAC08                    34700                           # IA Cell Setpoint  Hall A DAC 08 A1
+C1068_QDAC09                    34700                           # IA Cell Setpoint  Hall A DAC 09 A2
+C1068_QDAC10                    34700                           # IA Cell Setpoint  Hall A DAC 10 A3
+C1068_QDAC11                    20022.5                         # IA Cell Setpoint  Hall C DAC 11 A0
+C1068_QDAC12                    20022.5                         # IA Cell Setpoint  Hall C DAC 12 A1
+C1068_QDAC13                    20022.5                         # IA Cell Setpoint  Hall C DAC 13 A2
+C1068_QDAC14                    20022.5                         # IA Cell Setpoint  Hall C DAC 14 A3
+CFI60DLP                        2.9251                          # "dirty flowrate" at ESR (warm return) g/s
+CFI6711C                        20.3116                         # 4k flow, g/s
+CFI6731C                        18.4466                         # 15k Flow g/s
+COLPOS1                         -3.9999                         # Collimator Block 1
+COLPOS2                         -4.3001                         # Collimator Block 2
+COLPOS3                         -5.3999                         # Collimator Block 3
+COLPOS4                         -5.3499                         # Collimator Block 4
+COLPOS5                         -8.4999                         # Collimator Block 5
+COLPOS6                         -4.6499                         # Collimator Block 6
+COLPOS7                         -4.2999                         # Collimator Block 7
+CPI671SC                        3.42997                         # 4K Supply pressure at ESR atm
+CPI672                          1.1738                          # 5K return pressure at ESR atm
+CPI673                          12.923                          # 15K Supply pressure at ESR atm
+CPI9541                         2.58956                         # 20K return pressure at ESR atm
+CTD6614                         18.28                           # Hall A 15K supply temp K
+CTD671SC                        4.22                            # 4K Supply temp at ESR K
+CTD672                          4.21                            # 5K return temp at ESR K
+CTD673                          13.65                           # 15K Supply temp at ESR K
+CTD9541                         21.94                           # 20K return temp at ESR K
+EHCFR_A_IXPEAK                  21.6448                         # measure I for FR-XA
+EHCFR_A_IYPEAK                  21.7124                         # measure I for FR-YA
+EHCFR_B_IXPEAK                  22.4565                         # measure I for FR-XB
+EHCFR_B_IYPEAK                  22.727                          # measure I for FR-YB
+EHCFR_ENERGY                    10.5881                         # fast raster beam energy used to set raster (present)
+EHCFR_LIXWidth                  2                               # fast raster set X width
+EHCFR_LIYWidth                  2                               # fast raster set Y width
+FB_A:FB_On                      Off                             # Position FB status for Hall A
+FB_A:pause                      run                             # 'run'='not paused; FFB may run if it is enabled'
+FB_A:status:mbbi2.B7            1                               # -
+FB_A:use_RF                     RF Off                          # RF/Energy FB status for Hall A
+FB_C:CORR:C1_value.B            0                               # -
+FB_C:CORR:C2_value.B            0                               # -
+FB_C:CORR:C3_value.B            0                               # -
+FB_C:CORR:C4_value.B            0                               # -
+FB_C:FB_On                      Off                             # Position FB status for Hall C
+FB_C:pause                      run                             # 'run'='not paused; FFB may run if it is enabled'
+FB_C:status:mbbi2.B7            1                               # -
+FB_C:use_RF                     RF Off                          # RF/Energy FB status for Hall C
+HALLA:p                         8444.22                         # Tiefenback energy for Hall A
+HALLC:p                         10534.8                         # Tiefenback energy for Hall C
+HCCO:HMS:POSRB                  4.88383e+07                     # HMS Collimator position  (-497...=all_out, -317...=Sieve, -143...=Pion, 0=Home
+, 488...=Large)
+HCCO:SHMS:POSRB                 3.883                           # SHMS Collimator position (-315...=Shift_sieve, -114...=Cent_Sieve, 0=Home, 860
+...=Coll.)
+HCHMS_Q1_LS450:FLD_DATA         -0.7079                         # HMS Q1 Hall Probe
+HCHMS_Q2_LS450:FLD_DATA         0.89396                         # HMS Q2 Hall Probe
+HCHMS_Q3_LS450:FLD_DATA         -0.41503                        # HMS Q3 Hall Probe
+HELCLOCKd                       Free Clock                      # Helicity Clock Read
+HELCLOCKs                       Free Clock                      # Helicity Clock Set
+HELDELAYd                       8 windows                       # Helicity Delay Read
+HELDELAYs                       8 windows                       # Helicity Delay Set
+HELFREQ                         29.5596                         # Helicity Frequency
+HELPATTERNd                     Quartet                         # Helicity Pattern Read
+HELPATTERNs                     Quartet                         # Helicity Pattern Set
+HELTSETTLEd                     500                             # Helicity Settle Read
+HELTSTABLEd                     33330                           # Helicity Stable Read
+HMSPi:GasCherenkov:Pressure     5.59375                         # HMS Gas Cherenkov pressure [psi abs.]
+HMSPi:GasCherenkov:Temp         23.3063                         # HMS Gas Cherenkov temp [C]
+HMS_Momentum                    4.036                           # HMS Momentum (set by go_magnet_HMS_current)
+HWienAngle                      0                               # Horizontal Wien Angle
+IBC1H04CRCUR2                   0                               # Hall A MPS BCM Current uA
+IBC3H00CRCUR4                   0                               # Hall C MPS BCM Current uA
+IFY0I06I                        not inserted                    # PolCup position: FC1 (is/is not) inserted
+IFY0I06R                        retracted                       # PolCup position: FC1 (is/is not) retracted
+IFY0L03I                        not inserted                    # PolCup position: FC2 (is/is not) inserted
+IFY0L03R                        retracted                       # PolCup position: FC2 (is/is not) retracted
+IFY1I07I                        *** not connected               # PolCup position: PolCup (is/is not) inserted
+IFY1I07R                        *** not connected               # PolCup position: PolCup (is/is not) retracted
+IGL1I00AI17                     5.21123                         # Dummy Helicity Pockels Cell Voltage V
+IGL1I00AI22                     0                               # G0 X PZT Voltage V
+IGL1I00AI23                     0                               # G0 Y PZT Voltage V
+IGL1I00AI24                     0                               # IA Voltage V
+IGL1I00AI25                     0                               # Hall A X PZT Voltage V
+IGL1I00AI26                     0                               # Hall A Y PZT Voltage  V
+IGL1I00AI27                     0                               # Hall A IA Voltage  V
+IGL1I00AI7                      0.605617                        # Gun 2 PITA Voltage Positive V
+IGL1I00AI8                      0.561661                        # Gun 2 PITA Voltage Negative V
+IGL1I00DAC2                     0                               # Hall B Control Level
+IGL1I00DAC3                     0                               # Hall B Seed Level
+IGL1I00DAC5                     0                               # Horizontal Wien Electrode Voltage
+IGL1I00DAC6                     0                               # Vertical Wien Electrode Voltage
+IGL1I00DI24_24M                 OUT                             # Beam Half-wave plate Read(off=out) () --
+IGL1I00DIOFLRD                  13119                           # Carlini insertable waveplate state (1
+IGL1I00DIOHWTB.B2               0                               # Carlini insertable waveplate state (0=in,1=out)
+IGL1I00OD16_16                  OUT                             # Beam Half-wave plate Set(off=out)
+IGL1I00OD16_4                   POSITIVE                        # Vertical Wien HV Polarity
+IGL1I00OD16_8                   ON                              # Pockels Cell ON/OFF
+IGL1I00OD16_9                   POSITIVE                        # Horizontal Wien HV Polarity
+IGL1I00PStrans                  6.84946e-05                     # Injector transmission
+IHA3H07AIR                      0.79251                         # monitor
+IHA3H07BIR                      0.621978                        # monitor
+IOCSE14:PassSel;r               Auto Select                     # Auto Select
+IOCSE14:SEEGainMod;r            Auto Gain                       # Auto Gain
+IOCSE14:SEEProcMod;r            SEE Norm Ops                    # SEE Norm Ops
+IOCSE17:PassSel;r               Auto Select                     # Auto Select
+IOCSE17:SEEGainMod;r            Auto Gain                       # Auto Gain
+IOCSE17:SEEProcMod;r            SEE Norm Ops                    # SEE Norm Ops
+IOCSE18:PassSel;r               Auto Select                     # Auto Select
+IOCSE18:SEEGainMod;r            Auto Gain                       # Auto Gain
+IOCSE18:SEEProcMod;r            SEE Norm Ops                    # SEE Norm Ops
+IOCSE20:PassSel;r               Auto Select                     # Auto Select
+IOCSE20:SEEGainMod;r            Auto Gain                       # Auto Gain
+IOCSE20:SEEProcMod;r            SEE Norm Ops                    # SEE Norm Ops
+IPM2C24A.IENG                   0.091937                        # Hall B Beam Current (2C24A)
+IPM3C00.XPOS                    0                               # stripline bpm x position ,  BPM POSITION
+IPM3C00.YPOS                    0                               # stripline bpm x position
+IPM3C01.XPOS                    0                               # 
+IPM3C01.YPOS                    0                               # 
+IPM3C02.XPOS                    0                               # 
+IPM3C02.YPOS                    0                               # 
+IPM3C03.XPOS                    0                               # 
+IPM3C03.YPOS                    0                               # 
+IPM3C04.XPOS                    0                               # 
+IPM3C04.YPOS                    0                               # 
+IPM3C05.XPOS                    0                               # 
+IPM3C05.YPOS                    0                               # 
+IPM3C06.XPOS                    0                               # 
+IPM3C06.YPOS                    0                               # 
+IPM3C07.XPOS                    0                               # 
+IPM3C07.YPOS                    0                               # 
+IPM3C07A.XPOS                   0                               # 
+IPM3C07A.YPOS                   0                               # 
+IPM3C08.XPOS                    0                               # 
+IPM3C08.YPOS                    0                               # 
+IPM3C10.XPOS                    0                               # 
+IPM3C10.YPOS                    0                               # 
+IPM3C11.XPOS                    0                               # 
+IPM3C11.YPOS                    0                               # 
+IPM3C12.XPOS                    0                               # 
+IPM3C12.YPOS                    0                               # 
+IPM3C14.XPOS                    0                               # 
+IPM3C14.YPOS                    0                               # 
+IPM3C16.XPOS                    0                               # 
+IPM3C16.YPOS                    0                               # 
+IPM3C17.XIFG                    3400                            # stripline bpm x position auto-gain, BPM Position Auto-Gain
+IPM3C17.XPOS                    0                               # 
+IPM3C17.XSOF                    0.223                           # stripline bpm x position offset, BPM Position OffSet
+IPM3C17.YIFG                    3400                            # stripline bpm y position auto-gain
+IPM3C17.YPOS                    0                               # 
+IPM3C17.YSOF                    -0.356                          # stripline bpm y position offset
+IPM3C18.XIFG                    2900                            # 
+IPM3C18.XPOS                    0                               # 
+IPM3C18.XSOF                    -0.049                          # 
+IPM3C18.YIFG                    2900                            # 
+IPM3C18.YPOS                    0                               # 
+IPM3C18.YSOF                    -0.225                          # 
+IPM3C19.XIFG                    3400                            # 
+IPM3C19.XPOS                    0                               # 
+IPM3C19.XSOF                    0.003                           # 
+IPM3C19.YIFG                    3400                            # 
+IPM3C19.YPOS                    0                               # 
+IPM3C19.YSOF                    0.015                           # 
+IPM3C20.XIFG                    3200                            # 
+IPM3C20.XPOS                    0                               # 
+IPM3C20.XSOF                    0.11                            # 
+IPM3C20.YIFG                    3200                            # 
+IPM3C20.YPOS                    0                               # 
+IPM3C20.YSOF                    -0.52                           # 
+IPM3C21.XIFG                    3200                            # 
+IPM3C21.XPOS                    0                               # 
+IPM3C21.XSOF                    0.04                            # 
+IPM3C21.YIFG                    3200                            # 
+IPM3C21.YPOS                    0                               # 
+IPM3C21.YSOF                    -0.56                           # 
+IPM3H02.XIFG                    3200                            # 
+IPM3H02.XPOS                    0                               # 
+IPM3H02.XSOF                    0                               # 
+IPM3H02.YIFG                    3200                            # 
+IPM3H02.YPOS                    0                               # 
+IPM3H02.YSOF                    0                               # 
+IPM3H04.XIFG                    3200                            # 
+IPM3H04.XPOS                    0                               # 
+IPM3H04.XSOF                    0                               # 
+IPM3H04.YIFG                    3200                            # 
+IPM3H04.YPOS                    0                               # 
+IPM3H04.YSOF                    0                               # 
+IPM3H07A.FSUM                   481                             # X+ wire
+IPM3H07A.RSUM                   485                             # Y- wire
+IPM3H07A.SSUM                   527                             # Y+ wire
+IPM3H07A.TSUM                   498                             # X- wire
