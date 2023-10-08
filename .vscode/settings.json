@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "Plot_Pedestals.C": "cpp"
+        "Plot_Pedestals.C": "cpp",
+        "DeadTime_EDTM.C": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "Analyze.C": "cpp",
+        "a.C": "cpp"
     }
 }

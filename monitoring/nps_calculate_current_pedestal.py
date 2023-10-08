@@ -426,12 +426,12 @@ def main():
             hi.SetBinContent(xax.FindBin(XVALS[ii]),yax.FindBin(YVALS[ii]),(zvals2[ii]-zvals[ii])/t_diff[ii]/5.12e7)
             Pedestals[ii] += (zvals2[ii]-zvals[ii])/t_diff[ii]/5.12e10 # output pedestals in mA
             
-        # if Cycles==10:
-        #     file = open('Pedestals.txt','w')
-        #     for ii in range(len(zvals)):
-        #         file.write(str(Pedestals[ii]/Cycles)+'\n')
-        #     file.write(str(Cycles)+'\n')
-        #     file.close()
+        if Cycles==10:
+            file = open('Pedestals.txt','w')
+            for ii in range(len(zvals)):
+                file.write(str(Pedestals[ii]/Cycles)+'\n')
+            file.write(str(Cycles)+'\n')
+            file.close()
 
         for xx in [ttime,ttM,tt1]: xx.Clear()
         [total,maximum]=calcRates(zvals,zvals2,t_diff)
