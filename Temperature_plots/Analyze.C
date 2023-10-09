@@ -451,4 +451,25 @@ void Analyze(){
     }
     c_g[11]->Print("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_front_1D.pdf)");
 
+    TCanvas* c_chiller;
+    TGraph* g_chiller[2];
+    // hcnps_intlk_chiller_CZ_read_chiller_temp
+    readCSV("/home/cdaq/yaopeng/Temperature_plots/data/chart-CZ.txt", Date, time, value);
+    g_chiller[0] = new TGraph(time.size(), &time[0], &value[0]);
+
+    // hcnps_intlk_chiller_EZ_read_chiller_temp
+    readCSV("/home/cdaq/yaopeng/Temperature_plots/data/chart-EZ.txt", Date, time, value);
+    g_chiller[1] = new TGraph(time.size(), &time[0], &value[0]);
+
+    c_chiller = new TCanvas("c_chiller","c_chiller",1200,1200);
+    c_chiller->Divide(1,2);
+    c_chiller->cd(1);
+    g_chiller[0]->SetTitle(Form("NPS Chiller CZ Readout Temperature(%d-%d-%d);Time / hour;Temperature / degree",Date[0],Date[1],Date[2]));
+    g_chiller[0]->Draw();
+    c_chiller->cd(2);
+    g_chiller[1]->SetTitle(Form("NPS Chiller EZ Readout Temperature(%d-%d-%d);Time / hour;Temperature / degree",Date[0],Date[1],Date[2]));
+    g_chiller[1]->Draw();
+    c_chiller->Update();
+    c_chiller->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_chiller_readout.pdf");
+    
 }

@@ -25,3 +25,6 @@ do
     var2="hcnps_intlk_cz_t_front_${num}"
     /home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" ${var2} > /home/cdaq/yaopeng/Temperature_plots/data/chart-${new_num}.txt
 done
+
+/home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" hcnps_intlk_chiller_CZ_read_chiller_temp > /home/cdaq/yaopeng/Temperature_plots/data/chart-CZ.txt
+/home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" hcnps_intlk_chiller_EZ_read_chiller_temp > /home/cdaq/yaopeng/Temperature_plots/data/chart-EZ.txt

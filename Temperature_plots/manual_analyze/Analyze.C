@@ -126,7 +126,7 @@ void Analyze(){
     YMin[0] = 1000.;
     YMax[0] = 0.;
     for(int j=1;j<=56;j++){
-        readCSV(Form("./data/chart-%d.txt",j), Date, time, value);
+        readCSV(Form("/home/cdaq/yaopeng/Temperature_plots/data/chart-%d.txt",j), Date, time, value);
         // if(j==21){
             vector<double> time_new, value_new;
             double p0, p;
@@ -175,7 +175,7 @@ void Analyze(){
     YMin[1] = 1000.;
     YMax[1] = 0.;
     for(int j=1;j<=56;j++){
-        readCSV(Form("./data/chart-%d.txt",j+56), Date, time, value);
+        readCSV(Form("/home/cdaq/yaopeng/Temperature_plots/data/chart-%d.txt",j+56), Date, time, value);
         // if(j==21){
             vector<double> time_new, value_new;
             double p0, p;
@@ -242,7 +242,7 @@ void Analyze(){
     h2[0]->Draw("COLZTEXT");
     h2[0]->SetStats(0);
     c[0]->Update();
-    c[0]->SaveAs("./plots_2D/temp_back_ave_2D.pdf");
+    c[0]->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_2D/temp_back_ave_2D.pdf");
     // c[0]->SaveAs("./plots_hclog/temp_back_ave_2D.pdf");
 
     c[1] = new TCanvas("c_std_back","c_std_back",1200,800);
@@ -267,7 +267,7 @@ void Analyze(){
     h2[1]->Draw("COLZTEXT");
     h2[1]->SetStats(0);
     c[1]->Update();
-    c[1]->SaveAs("./plots_2D/temp_back_std_2D.pdf");
+    c[1]->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_2D/temp_back_std_2D.pdf");
     // c[1]->SaveAs("./plots_hclog/temp_back_std_2D.pdf");
 
     c[2] = new TCanvas("c_ave_front","c_ave_front",1200,800);
@@ -284,7 +284,7 @@ void Analyze(){
     h2[2]->Draw("COLZTEXT");
     h2[2]->SetStats(0);
     c[2]->Update();
-    c[2]->SaveAs("./plots_2D/temp_front_ave_2D.pdf");
+    c[2]->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_2D/temp_front_ave_2D.pdf");
     // c[2]->SaveAs("./plots_hclog/temp_front_ave_2D.pdf");
 
     c[3] = new TCanvas("c_std_front","c_std_front",1200,800);
@@ -301,7 +301,7 @@ void Analyze(){
     h2[3]->Draw("COLZTEXT");
     h2[3]->SetStats(0);
     c[3]->Update();
-    c[3]->SaveAs("./plots_2D/temp_front_std_2D.pdf");
+    c[3]->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_2D/temp_front_std_2D.pdf");
     // c[3]->SaveAs("./plots_hclog/temp_front_std_2D.pdf");
 
     TCanvas *c_ave = new TCanvas("c_ave","c_ave",1200,1600);
@@ -311,7 +311,7 @@ void Analyze(){
     c_ave->cd(2);
     c[2]->DrawClonePad();
     c_ave->Update();
-    c_ave->SaveAs("./plots_hclog/temp_average_2D.pdf");
+    c_ave->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_average_2D.pdf");
 
     TCanvas *c_std = new TCanvas("c_std","c_std",1200,1600);
     c_std->Divide(1,2);
@@ -320,7 +320,7 @@ void Analyze(){
     c_std->cd(2);
     c[3]->DrawClonePad();
     c_std->Update();
-    c_std->SaveAs("./plots_hclog/temp_std_2D.pdf");
+    c_std->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_std_2D.pdf");
 
     // 1D plots array
     c_multi_g[0] = new TCanvas("c_multi_g_0","c_multi_g_0",3200,4000);
@@ -351,8 +351,8 @@ void Analyze(){
             g[FillNo]->Draw();
         }
     }
-    c_multi_g[0]->SaveAs("./plots_1D/2D/temp_back_1D_array.pdf");
-    c_multi_g[0]->SaveAs("./plots_hclog/temp_back_1D_array.pdf");
+    c_multi_g[0]->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_1D/2D/temp_back_1D_array.pdf");
+    c_multi_g[0]->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_back_1D_array.pdf");
     // c_multi_g[0]->SaveAs("./plots_1D/2D/temp_back.png");
 
     c_multi_g[1] = new TCanvas("c_multi_g_1","c_multi_g_1",3200,4000);
@@ -375,8 +375,8 @@ void Analyze(){
             g[FillNo+56]->Draw();
         }
     }
-    c_multi_g[1]->SaveAs("./plots_1D/2D/temp_front_1D_array.pdf");
-    c_multi_g[1]->SaveAs("./plots_hclog/temp_front_1D_array.pdf");
+    c_multi_g[1]->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_1D/2D/temp_front_1D_array.pdf");
+    c_multi_g[1]->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_front_1D_array.pdf");
     // c_multi_g[1]->SaveAs("./plots_1D/2D/temp_front.png");
     // */
 
@@ -396,7 +396,7 @@ void Analyze(){
         text_std[i] = new TText(xMin+(xMax-xMin)*0.7, yMin+(yMax-yMin)*0.1,Form("STD = %6.4f",T_std[i]));
         text_std[i]->SetTextSize(0.04);
         text_std[i]->Draw();
-        c_g_1D[i]->SaveAs(Form("./plots_1D/1D/temp_1D_back_%d.png",i+1));
+        c_g_1D[i]->SaveAs(Form("/home/cdaq/yaopeng/Temperature_plots/plots_1D/1D/temp_1D_back_%d.png",i+1));
 
         c_g_1D[i+56] = new TCanvas(Form("c_g_1D_%d",i+56),Form("c_g_1D_%d",i+56),1200,600);
         c_g_1D[i+56]->SetGrid(1);
@@ -412,7 +412,7 @@ void Analyze(){
         text_std[i+56] = new TText(xMin+(xMax-xMin)*0.7, yMin+(yMax-yMin)*0.1,Form("STD = %6.4f",T_std[i+56]));
         text_std[i+56]->SetTextSize(0.04);
         text_std[i+56]->Draw();
-        c_g_1D[i+56]->SaveAs(Form("./plots_1D/1D/temp_1D_front_%d.png",i+1));
+        c_g_1D[i+56]->SaveAs(Form("/home/cdaq/yaopeng/Temperature_plots/plots_1D/1D/temp_1D_front_%d.png",i+1));
     }
 
     for(int k=0;k<6;k++){
@@ -427,11 +427,11 @@ void Analyze(){
         }
         // c_g[k]->SaveAs(Form("./plots_1D/temp_back_%d.pdf",k+1));
     }
-    c_g[0]->Print("./plots_hclog/temp_back_1D.pdf(");
+    c_g[0]->Print("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_back_1D.pdf(");
     for(int i=1;i<5;i++){
-        c_g[i]->Print("./plots_hclog/temp_back_1D.pdf");
+        c_g[i]->Print("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_back_1D.pdf");
     }
-    c_g[5]->Print("./plots_hclog/temp_back_1D.pdf)");
+    c_g[5]->Print("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_back_1D.pdf)");
 
     for(int k=0;k<6;k++){
         c_g[k+6] = new TCanvas(Form("c_g_%d",k+6),Form("c_g_%d",k+6),3200,4000);
@@ -445,10 +445,31 @@ void Analyze(){
         }
         // c_g[k+6]->SaveAs(Form("./plots_1D/temp_front_%d.pdf",k+1));
     }
-    c_g[6]->Print("./plots_hclog/temp_front_1D.pdf(");
+    c_g[6]->Print("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_front_1D.pdf(");
     for(int i=1;i<5;i++){
-        c_g[i+6]->Print("./plots_hclog/temp_front_1D.pdf");
+        c_g[i+6]->Print("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_front_1D.pdf");
     }
-    c_g[11]->Print("./plots_hclog/temp_front_1D.pdf)");
+    c_g[11]->Print("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_front_1D.pdf)");
 
+    TCanvas* c_chiller;
+    TGraph* g_chiller[2];
+    // hcnps_intlk_chiller_CZ_read_chiller_temp
+    readCSV("/home/cdaq/yaopeng/Temperature_plots/data/chart-CZ.txt", Date, time, value);
+    g_chiller[0] = new TGraph(time.size(), &time[0], &value[0]);
+
+    // hcnps_intlk_chiller_EZ_read_chiller_temp
+    readCSV("/home/cdaq/yaopeng/Temperature_plots/data/chart-EZ.txt", Date, time, value);
+    g_chiller[1] = new TGraph(time.size(), &time[0], &value[0]);
+
+    c_chiller = new TCanvas("c_chiller","c_chiller",1200,1200);
+    c_chiller->Divide(1,2);
+    c_chiller->cd(1);
+    g_chiller[0]->SetTitle(Form("NPS Chiller CZ Readout Temperature(%d-%d-%d);Time / hour;Temperature / degree",Date[0],Date[1],Date[2]));
+    g_chiller[0]->Draw();
+    c_chiller->cd(2);
+    g_chiller[1]->SetTitle(Form("NPS Chiller EZ Readout Temperature(%d-%d-%d);Time / hour;Temperature / degree",Date[0],Date[1],Date[2]));
+    g_chiller[1]->Draw();
+    c_chiller->Update();
+    c_chiller->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_chiller_readout.pdf");
+    
 }

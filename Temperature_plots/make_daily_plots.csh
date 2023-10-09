@@ -19,6 +19,7 @@ set previous_date=`cat /home/cdaq/yaopeng/Temperature_plots/date.txt`
 -a "/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_back_1D_array.pdf" \
 -a "/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_front_1D.pdf" \
 -a "/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_back_1D.pdf" \
+-a "/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_chiller_readout.pdf" \
 
 set current_date=`date +"%Y-%m-%d"`
 echo "$current_date" > /home/cdaq/yaopeng/Temperature_plots/date.txt
