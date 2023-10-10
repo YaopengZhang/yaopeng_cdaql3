@@ -316,10 +316,12 @@ def main():
         t_diff_fast = []
 
         # file = open('Pedestals_channel_0.txt','a')
-
+        flag = 1
         for ii in range(len(zvals)):
             t_diff.append((time2[ii]-time1[ii])/60.0)
-            if t_diff[ii]<0.1: t_diff[ii] = 1.
+            if t_diff[ii]<0.1:
+                t_diff[ii] = 1.
+                flag = 0
             Current_Value = ((zvals2[ii]-zvals[ii])/t_diff[ii]/5.12e7-Pedestals[ii])/gain_factor
             # if Current_Value<0: Current_Value=0
 
@@ -330,17 +332,16 @@ def main():
 
             Curr[ii] = Current_Value
             # Curr[ii] = float(ii)*1.0
-
-        pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
-        # ii from 0-1079
-        for i in range(1080):
-            variable_name = 'hcnps_anodeCurr:{}'.format(i)
-            # execute_caput(variable_name,Curr[i])
-            pool.apply_async(execute_caput, (variable_name, Curr[i]))
-        pool.close()
-        pool.join()
-
-        print("caput all Finished")
+        if flag==1:
+            pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
+            # ii from 0-1079
+            for i in range(1080):
+                variable_name = 'hcnps_anodeCurr:{}'.format(i)
+                # execute_caput(variable_name,Curr[i])
+                pool.apply_async(execute_caput, (variable_name, Curr[i]))
+            pool.close()
+            pool.join()
+            print("caput all Finished")
    
 
 if __name__=='__main__': main()

@@ -13,6 +13,11 @@ echo "Year: $year"
 echo "Month: $month"
 echo "Day: $day"
 
+/home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" ibcm1 > /home/cdaq/yaopeng/Temperature_plots/data/chart-Beam.txt
+/home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" hcnps_intlk_chiller_CZ_read_chiller_temp > /home/cdaq/yaopeng/Temperature_plots/data/chart-CZ.txt
+/home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" hcnps_intlk_chiller_EZ_read_chiller_temp > /home/cdaq/yaopeng/Temperature_plots/data/chart-EZ.txt
+/home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" hchv30:00:000:VMon > /home/cdaq/yaopeng/Temperature_plots/data/chart-HV.txt
+
 for num in {1..56}
 # for num in {1..2}
 do
@@ -25,6 +30,3 @@ do
     var2="hcnps_intlk_cz_t_front_${num}"
     /home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" ${var2} > /home/cdaq/yaopeng/Temperature_plots/data/chart-${new_num}.txt
 done
-
-/home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" hcnps_intlk_chiller_CZ_read_chiller_temp > /home/cdaq/yaopeng/Temperature_plots/data/chart-CZ.txt
-/home/cdaq/bin/myData -b "$previous_date 00:00:00" -e "$previous_date 23:59:59" hcnps_intlk_chiller_EZ_read_chiller_temp > /home/cdaq/yaopeng/Temperature_plots/data/chart-EZ.txt

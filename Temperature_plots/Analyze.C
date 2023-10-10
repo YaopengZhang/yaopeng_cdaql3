@@ -471,5 +471,25 @@ void Analyze(){
     g_chiller[1]->Draw();
     c_chiller->Update();
     c_chiller->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/temp_chiller_readout.pdf");
-    
+
+    TCanvas* c_HV;
+    TCanvas* c_Beam;
+    TGraph* g_HV;
+    TGraph* g_Beam;
+    // hchv30:00:000:VMon
+    readCSV("/home/cdaq/yaopeng/Temperature_plots/data/chart-HV.txt", Date, time, value);
+    g_HV = new TGraph(time.size(), &time[0], &value[0]);
+    g_HV->SetTitle(Form("hchv30:00:000:VMon (%d-%d-%d);Time / hour;Voltage / V",Date[0],Date[1],Date[2]));
+    // ibcm1
+    readCSV("/home/cdaq/yaopeng/Temperature_plots/data/chart-Beam.txt", Date, time, value);
+    g_Beam = new TGraph(time.size(), &time[0], &value[0]);
+    g_Beam->SetTitle(Form("ibcm1 (%d-%d-%d);Time / hour;I / uA",Date[0],Date[1],Date[2]));
+
+    c_HV = new TCanvas("c_HV","c_HV",1200,600);
+    g_HV->Draw();
+    c_HV->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/HV_status.pdf");
+
+    c_Beam = new TCanvas("c_Beam","c_Beam",1200,600);
+    g_Beam->Draw();
+    c_Beam->SaveAs("/home/cdaq/yaopeng/Temperature_plots/plots_hclog/Beam_status.pdf");
 }
