@@ -322,6 +322,8 @@ def main():
             if t_diff[ii]<0.1:
                 t_diff[ii] = 1.
                 flag = 0
+            if zvals[ii]<1000. or zvals2[ii]<1000.:
+                flag = 0
             Current_Value = ((zvals2[ii]-zvals[ii])/t_diff[ii]/5.12e7-Pedestals[ii])/gain_factor
             # if Current_Value<0: Current_Value=0
 

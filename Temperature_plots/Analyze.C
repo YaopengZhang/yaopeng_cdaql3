@@ -34,6 +34,7 @@ void readCSV(const std::string& fileName, int* Date, std::vector<double>& time, 
         iss >> part1;
         iss >> part2;
         iss >> part3;
+        if(part3=="<undefined>") continue;
         val = stod(part3);
         // cout<<part1<<"\t"<<part2<<"\t"<<part3<<endl;
         // cout<<part1<<"\t"<<part2<<"\t"<<val<<endl;

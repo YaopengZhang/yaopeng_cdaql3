@@ -13,8 +13,8 @@ echo "Year: $year"
 echo "Month: $month"
 echo "Day: $day"
 
-time_start="08:00:00"
-time_end="18:00:00"
+time_start="03:00:00"
+time_end="16:00:00"
 
 /home/cdaq/bin/myData -b "$previous_date $time_start" -e "$previous_date $time_end" hcnps_intlk_chiller_CZ_read_chiller_temp > /home/cdaq/yaopeng/Temperature_plots/manual_analyze/data/chart-CZ.txt
 /home/cdaq/bin/myData -b "$previous_date $time_start" -e "$previous_date $time_end" hcnps_intlk_chiller_EZ_read_chiller_temp > /home/cdaq/yaopeng/Temperature_plots/manual_analyze/data/chart-EZ.txt
