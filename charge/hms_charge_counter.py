@@ -103,7 +103,7 @@ def main():
 
         if diff>0 and int(RunStatus)==1:
           time1 = (zvals2[0]-zvals[0])/1000000. # 1/60 second
-          current = ((zvals2[1]-zvals[1])/time1-1605.)/9570.
+          current = ((zvals2[1]-zvals[1])/time1+1605.)/9570.
           t1rate=  (zvals2[2]-zvals[2])/time1/1000.
           t2rate=  (zvals2[3]-zvals[3])/time1/1000.
           t3rate=  (zvals2[4]-zvals[4])/time1/1000.

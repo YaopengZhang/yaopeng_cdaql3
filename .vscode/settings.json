@@ -5,6 +5,7 @@
         "ostream": "cpp",
         "iostream": "cpp",
         "Analyze.C": "cpp",
-        "a.C": "cpp"
+        "a.C": "cpp",
+        "pi0_test.C": "cpp"
     }
 }
