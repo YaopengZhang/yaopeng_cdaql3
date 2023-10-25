@@ -342,7 +342,7 @@ void Pi0_mass_calculation(int fileoption, int fileNo, Double_t Targetname, int R
 void pi0_test(){
     // "/lustre19/expphy/cache/hallc/c-nps/analysis/online/replays/"
 
-    // OUT  LD2
+    // OUT  LD2  20.58
     // Pi0_mass_calculation(1,0,LD2_10cm_target,1723,20.58,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,0,LD2_10cm_target,1724,20.58,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,0,LD2_10cm_target,1725,20.58,10.538); // 1 "recreate"; 0 "update"
@@ -354,15 +354,24 @@ void pi0_test(){
     int All_runs_0[] = {1723,1724,1725,1726,1735,1737,1738};
     int arrayLength_0 = sizeof(All_runs_0)/sizeof(All_runs_0[0]);
 
-    // OUT  LD2
+    // OUT  LD2  18.72
     // Pi0_mass_calculation(1,1,LD2_10cm_target,1757,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1758,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1759,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,1,LD2_10cm_target,1945,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,1,LD2_10cm_target,1946,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,1,LD2_10cm_target,1947,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,1,LD2_10cm_target,1948,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,1,LD2_10cm_target,1949,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,1,LD2_10cm_target,1950,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,1,LD2_10cm_target,1952,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,1,LD2_10cm_target,1953,18.72,10.538); // 1 "recreate"; 0 "update"
 
-    int All_runs_1[] = {1757,1758,1759};
+
+    int All_runs_1[] = {1757,1758,1759,1945,1946,1947,1948,1949,1950,1952,1953};
     int arrayLength_1 = sizeof(All_runs_1)/sizeof(All_runs_1[0]);
 
-    // OUT  LH2
+    // OUT  LH2  20.58
     // Pi0_mass_calculation(1,2,LH2_10cm_target,1727,20.58,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,2,LH2_10cm_target,1728,20.58,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,2,LH2_10cm_target,1729,20.58,10.538); // 1 "recreate"; 0 "update"
@@ -372,8 +381,16 @@ void pi0_test(){
     int All_runs_2[] = {1727,1728,1729,1730,1731};
     int arrayLength_2 = sizeof(All_runs_2)/sizeof(All_runs_2[0]);
 
+    // OUT  LH2  18.72
+    // Pi0_mass_calculation(1,5,LH2_10cm_target,1954,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,5,LH2_10cm_target,1955,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,5,LH2_10cm_target,1956,18.72,10.538); // 1 "recreate"; 0 "update"
+    // Pi0_mass_calculation(0,5,LH2_10cm_target,1957,18.72,10.538); // 1 "recreate"; 0 "update"
 
-    // IN  LD2
+    int All_runs_5[] = {1954,1955,1956,1957};
+    int arrayLength_5 = sizeof(All_runs_5)/sizeof(All_runs_5[0]);
+
+    // IN  LD2  18.72
     // Pi0_mass_calculation(1,3,LD2_10cm_target,1820,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1821,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1822,18.72,10.538); // 1 "recreate"; 0 "update"
@@ -412,7 +429,7 @@ void pi0_test(){
     int All_runs_3[] = {1820,1821,1822,1824,1825,1834,1835,1837,1839,1840,1859,1863,1864,1865,1866,1867,1874,1875,1876,1891,1904,1905,1906,1907,1908,1910,1911,1913,1914,1926,1927,1929,1930,1931};
     int arrayLength_3 = sizeof(All_runs_3)/sizeof(All_runs_3[0]);
 
-    // IN  LH2
+    // IN  LH2  18.72
     // Pi0_mass_calculation(1,4,LH2_10cm_target,1826,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,4,LH2_10cm_target,1827,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,4,LH2_10cm_target,1828,18.72,10.538); // 1 "recreate"; 0 "update"
@@ -469,8 +486,8 @@ void pi0_test(){
     TH1F* h_asymmetry = new TH1F("h_asymmetry","#pi^{0} asymmetry;#phi;asymmetry",NofBins_phi,0,2.*TMath::Pi());
     TH1F* h_asymmetry_diff = new TH1F("h_asymmetry_diff","#pi^{0} N_{ +} - N_{ -};#phi;N_{+} - N_{-}",NofBins_phi,0,2.*TMath::Pi());
 
-    /*
-    // OUT  LD2
+    // /*
+    // OUT  LD2  20.58
     TFile* file_0 = TFile::Open("./pi0/pi0_multiruns_0.root", "READ");
     for(int i=0;i<arrayLength_0;i++){
 
@@ -504,7 +521,7 @@ void pi0_test(){
 
     }
 
-    // OUT  LD2
+    // OUT  LD2  18.72
     TFile* file_1 = TFile::Open("./pi0/pi0_multiruns_1.root", "READ");
     for(int i=0;i<arrayLength_1;i++){
 
@@ -538,7 +555,7 @@ void pi0_test(){
 
     }
 
-    // OUT  LH2
+    // OUT  LH2  20.58
     TFile* file_2 = TFile::Open("./pi0/pi0_multiruns_2.root", "READ");
     for(int i=0;i<arrayLength_2;i++){
 
@@ -571,10 +588,44 @@ void pi0_test(){
         }
 
     }
-    */
 
-    // /*
-    // IN  LD2
+    // OUT  LH2  18.72
+    TFile* file_5 = TFile::Open("./pi0/pi0_multiruns_5.root", "READ");
+    for(int i=0;i<arrayLength_5;i++){
+
+        TTree* tree = (TTree*)file_5->Get(Form("Run_%d",All_runs_5[i]));
+
+        Double_t phi, hel;
+        tree->SetBranchAddress("phi", &phi);
+        tree->SetBranchAddress("hel", &hel);
+
+        Long64_t nEntries = tree->GetEntries();
+        for (Long64_t i = 0; i < nEntries; i++) {
+            tree->GetEntry(i);
+
+            h_phi->Fill(phi);
+            if(hel>0.) h_phi_pos->Fill(phi);
+            if(hel<0.) h_phi_neg->Fill(phi);
+            if(hel==0.) h_phi_0->Fill(phi);
+
+            Int_t BinNo = int(ceil(phi/Bin_length));
+            Asymmetry_up[BinNo-1] += hel;
+            Asymmetry_down[BinNo-1] += 1.;
+
+        }
+
+        for(int i=0;i<NofBins_phi;i++){
+            Asymmetry[i] = Asymmetry_up[i]/Asymmetry_down[i];
+            h_asymmetry->SetBinContent(i+1,Asymmetry[i]);
+            h_asymmetry->SetBinError(i+1,sqrt((1-pow(Asymmetry[i],2))/Asymmetry_down[i]));
+            h_asymmetry_diff->SetBinContent(i+1,Asymmetry_up[i]);
+        }
+
+    }
+    // */
+
+    /*
+    // IN  LD2  18.72
     TFile* file_3 = TFile::Open("./pi0/pi0_multiruns_3.root", "READ");
     for(int i=0;i<arrayLength_3;i++){
 
@@ -608,7 +659,7 @@ void pi0_test(){
 
     }
 
-    // IN  LH2
+    // IN  LH2  18.72
     TFile* file_4 = TFile::Open("./pi0/pi0_multiruns_4.root", "READ");
     for(int i=0;i<arrayLength_4;i++){
 
@@ -641,7 +692,7 @@ void pi0_test(){
         }
 
     }
-    // */
+    */
 
     TCanvas *c_phi = new TCanvas("c_phi","c_phi",1200,800);
     h_phi->Draw();
@@ -669,16 +720,18 @@ void pi0_test(){
     h_asymmetry_diff->Draw();
     c_asymmetry_diff->SaveAs("./pi0/phi_asymmetry_diff.pdf");
 
-    // file_0->Close();
-    // file_1->Close();
-    // file_2->Close();
-    file_3->Close();
-    file_4->Close();
-    // delete file_0;
-    // delete file_1;
-    // delete file_2;
-    delete file_3;
-    delete file_4;
+    file_0->Close();
+    file_1->Close();
+    file_2->Close();
+    file_5->Close();
+    delete file_0;
+    delete file_1;
+    delete file_2;
+    delete file_5;
+    // file_3->Close();
+    // file_4->Close();
+    // delete file_3;
+    // delete file_4;
 }
 
 
