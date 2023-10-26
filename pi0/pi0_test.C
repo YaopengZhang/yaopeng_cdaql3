@@ -23,8 +23,11 @@
 
 const double_t convdeg = TMath::Pi()/180.;
 const double_t MinClusSize = 3;
-const double_t clusTmax = 160.;
+// const double_t clusTmax = 160.;
+const double_t clusTmax = 156.;
 const double_t clusTmin = 148.;
+const double_t clusTmax_random = 135.;
+const double_t clusTmin_random = 127.;
 const double_t LH2_10cm_target = 1.00794*931.5/1000.;
 const double_t LD2_10cm_target = 2.014*931.5/1000./2.;
 const double_t electron_mass = 0.51099895e-3;
@@ -155,6 +158,11 @@ void Pi0_mass_calculation(int fileoption, int fileNo, Double_t Targetname, int R
     TBranch* b_phi = tree->Branch("phi",&phi,"phi/D");
     TBranch* b_hel = tree->Branch("hel",&hel,"hel/D");
 
+    TTree *tree_random = new TTree(Form("Run_%d_random",RunNo),Form("Run_%d_random",RunNo));
+    Double_t phi_random, hel_random;
+    TBranch* b_phi_random = tree_random->Branch("phi_random",&phi_random,"phi_random/D");
+    TBranch* b_hel_random = tree_random->Branch("hel_random",&hel_random,"hel_random/D");
+
     TH1F* inv_mass = new TH1F(Form("invmass_%d",RunNo),"Invariant mass",70,0,0.3);
     inv_mass->GetXaxis()->SetTitle("Energy(GeV)");
     inv_mass->SetLineColor(4);
@@ -211,6 +219,57 @@ void Pi0_mass_calculation(int fileoption, int fileNo, Double_t Targetname, int R
 
                 if(clusSize[i] < MinClusSize || clusSize[j] <MinClusSize) continue;
 
+                // calculate random coincidence events
+                if(clusT[i]>clusTmin_random && clusT[i]<clusTmax_random && clusT[j]>=clusTmin_random && clusT[j]<=clusTmax_random){
+                    if(clusE[i]>0.5&&clusE[j]>0.5){
+
+                        TVector3 v_Q1_random, v_Q2_random;
+                        GetPvect(clusX[i], clusY[i],clusZ[i],clusE[i], v_vtx, v_Q1_random, angle);
+                        GetPvect(clusX[j], clusY[j],clusZ[j],clusE[j], v_vtx, v_Q2_random, angle);
+
+                        TLorentzVector Q1_random;
+                        TLorentzVector Q2_random;
+                        TLorentzVector Q3_random;
+
+                        Q1_random.SetPxPyPzE(v_Q1_random[0], v_Q1_random[1], v_Q1_random[2], clusE[i]);
+                        Q2_random.SetPxPyPzE(v_Q2_random[0], v_Q2_random[1], v_Q2_random[2], clusE[j]);
+                        Q3_random=Q1_random+Q2_random;
+
+                        Double_t im2_random = Q3_random.M2();
+                        Double_t invmass_random = sqrt(im2_random);
+
+                        TLorentzVector beam_vect_random;
+                        beam_vect_random.SetXYZM(0,0,beamEne,electron_mass);
+
+                        TLorentzVector target_vect_random;
+                        target_vect_random.SetXYZM(0,0,0,Targetname);
+
+                        TLorentzVector X_vect_random;
+                        X_vect_random = (beam_vect_random + target_vect_random - sele_vect - Q1_random - Q2_random);
+                        if (invmass_random > 0.1 && invmass_random < 0.13){
+                            Double_t mm2_random = X_vect_random.M2();
+                            if( mm2_random>1.1 && mm2_random<1.8 ){
+                                // kp is a TVector3 of the scattered electron;
+                                // qp is the TVector3 of the photon (or pi0=photon1+photon2)
+                                TVector3 k_random, kp_random, qp_random;
+                                k_random.SetXYZ(0,0,beamEne);
+                                kp_random.SetXYZ(gtr_px,gtr_py,gtr_pz);
+                                qp_random.SetXYZ(Q3_random.X(),Q3_random.Y(),Q3_random.Z());
+                                TVector3 q_random=k_random-kp_random;
+                                TVector3 v1_random=q_random.Cross(kp_random);
+                                TVector3 v2_random=q_random.Cross(qp_random);
+                                Double_t fphi_random=v1_random.Angle(v2_random);
+                                if(q_random.Dot(v1_random.Cross(v2_random))<0) fphi_random=2.*TMath::Pi()-fphi_random;
+
+                                phi_random = fphi_random;
+                                hel_random = T_helicity_hel;
+
+                                tree_random->Fill();
+                            }
+                        }
+                    }
+                }
+
                 if(clusT[i] < clusTmin || clusT[i] > clusTmax) continue;
                 if(clusT[j] <= clusTmin || clusT[j] >= clusTmax) continue;
 
@@ -242,9 +301,7 @@ void Pi0_mass_calculation(int fileoption, int fileNo, Double_t Targetname, int R
                 X_vect = (beam_vect + target_vect - sele_vect - Q1 - Q2);
                 if (invmass < 0.1 || invmass > 0.13) continue;
                 Double_t mm2 = X_vect.M2();
-                // if( mm2<1.1 || mm2>1.7 ) continue;
                 miss_mass->Fill(mm2);
-
 
                 if( mm2<1.1 || mm2>1.8 ) continue;
 
@@ -269,7 +326,7 @@ void Pi0_mass_calculation(int fileoption, int fileNo, Double_t Targetname, int R
 
                 Int_t BinNo = int(ceil(fphi/Bin_length));
                 Asymmetry_up[BinNo-1] += T_helicity_hel;
-                Asymmetry_down[BinNo-1] += 1.;
+                Asymmetry_down[BinNo-1] += 1.*fabs(T_helicity_hel);
 
                 // cout<<evt<<"\t"<<T_helicity_nqrt<<"\t"<<T_helicity_hel<<endl;
 
@@ -336,6 +393,7 @@ void Pi0_mass_calculation(int fileoption, int fileNo, Double_t Targetname, int R
     h_asymmetry_diff->Write();
     h_clust_T->Write();
     tree->Write();
+    tree_random->Write();
     f1->Close();
 }
 
@@ -358,17 +416,15 @@ void pi0_test(){
     // Pi0_mass_calculation(1,1,LD2_10cm_target,1757,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1758,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1759,18.72,10.538); // 1 "recreate"; 0 "update"
-    // Pi0_mass_calculation(0,1,LD2_10cm_target,1945,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1946,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1947,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1948,18.72,10.538); // 1 "recreate"; 0 "update"
-    // Pi0_mass_calculation(0,1,LD2_10cm_target,1949,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1950,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1952,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,1,LD2_10cm_target,1953,18.72,10.538); // 1 "recreate"; 0 "update"
 
 
-    int All_runs_1[] = {1757,1758,1759,1945,1946,1947,1948,1949,1950,1952,1953};
+    int All_runs_1[] = {1757,1758,1759,1946,1947,1948,1950,1952,1953};
     int arrayLength_1 = sizeof(All_runs_1)/sizeof(All_runs_1[0]);
 
     // OUT  LH2  20.58
@@ -399,11 +455,9 @@ void pi0_test(){
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1834,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1835,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1837,18.72,10.538); // 1 "recreate"; 0 "update"
-    // Pi0_mass_calculation(0,3,LD2_10cm_target,1839,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1840,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1859,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1863,18.72,10.538); // 1 "recreate"; 0 "update"
-    // Pi0_mass_calculation(0,3,LD2_10cm_target,1864,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1865,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1866,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1867,18.72,10.538); // 1 "recreate"; 0 "update"
@@ -414,7 +468,6 @@ void pi0_test(){
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1904,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1905,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1906,18.72,10.538); // 1 "recreate"; 0 "update"
-    // Pi0_mass_calculation(0,3,LD2_10cm_target,1907,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1908,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1910,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1911,18.72,10.538); // 1 "recreate"; 0 "update"
@@ -426,7 +479,7 @@ void pi0_test(){
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1930,18.72,10.538); // 1 "recreate"; 0 "update"
     // Pi0_mass_calculation(0,3,LD2_10cm_target,1931,18.72,10.538); // 1 "recreate"; 0 "update"
 
-    int All_runs_3[] = {1820,1821,1822,1824,1825,1834,1835,1837,1839,1840,1859,1863,1864,1865,1866,1867,1874,1875,1876,1891,1904,1905,1906,1907,1908,1910,1911,1913,1914,1926,1927,1929,1930,1931};
+    int All_runs_3[] = {1820,1821,1822,1824,1825,1834,1835,1837,1840,1859,1863,1865,1866,1867,1874,1875,1876,1891,1904,1905,1906,1908,1910,1911,1913,1914,1926,1927,1929,1930,1931};
     int arrayLength_3 = sizeof(All_runs_3)/sizeof(All_runs_3[0]);
 
     // IN  LH2  18.72
@@ -486,20 +539,26 @@ void pi0_test(){
     TH1F* h_asymmetry = new TH1F("h_asymmetry","#pi^{0} asymmetry;#phi;asymmetry",NofBins_phi,0,2.*TMath::Pi());
     TH1F* h_asymmetry_diff = new TH1F("h_asymmetry_diff","#pi^{0} N_{ +} - N_{ -};#phi;N_{+} - N_{-}",NofBins_phi,0,2.*TMath::Pi());
 
-    // /*
+    /*
     // OUT  LD2  20.58
     TFile* file_0 = TFile::Open("./pi0/pi0_multiruns_0.root", "READ");
     for(int i=0;i<arrayLength_0;i++){
 
         TTree* tree = (TTree*)file_0->Get(Form("Run_%d",All_runs_0[i]));
+        TTree* tree_random = (TTree*)file_0->Get(Form("Run_%d_random",All_runs_0[i]));
 
         Double_t phi, hel;
         tree->SetBranchAddress("phi", &phi);
         tree->SetBranchAddress("hel", &hel);
 
+
+        Double_t phi_random, hel_random;
+        tree_random->SetBranchAddress("phi", &phi);
+        tree_random->SetBranchAddress("hel", &hel);
+
         Long64_t nEntries = tree->GetEntries();
-        for (Long64_t i = 0; i < nEntries; i++) {
-            tree->GetEntry(i);
+        for (Long64_t k = 0; k < nEntries; k++) {
+            tree->GetEntry(k);
 
             h_phi->Fill(phi);
             if(hel>0.) h_phi_pos->Fill(phi);
@@ -508,17 +567,17 @@ void pi0_test(){
 
             Int_t BinNo = int(ceil(phi/Bin_length));
             Asymmetry_up[BinNo-1] += hel;
-            Asymmetry_down[BinNo-1] += 1.;
-
+            Asymmetry_down[BinNo-1] += 1.*fabs(hel);
         }
 
-        for(int i=0;i<NofBins_phi;i++){
-            Asymmetry[i] = Asymmetry_up[i]/Asymmetry_down[i];
-            h_asymmetry->SetBinContent(i+1,Asymmetry[i]);
-            h_asymmetry->SetBinError(i+1,sqrt((1-pow(Asymmetry[i],2))/Asymmetry_down[i]));
-            h_asymmetry_diff->SetBinContent(i+1,Asymmetry_up[i]);
-        }
+        // Long64_t nEntries_random = tree_random->GetEntries();
+        // for (Long64_t k = 0; k < nEntries_random; k++) {
+        //     tree_random->GetEntry(k);
 
+        //     Int_t BinNo = int(ceil(phi/Bin_length));
+        //     Asymmetry_up[BinNo-1] -= hel;
+        //     Asymmetry_down[BinNo-1] -= 1.*fabs(hel);
+        // }
     }
 
     // OUT  LD2  18.72
@@ -526,14 +585,19 @@ void pi0_test(){
     for(int i=0;i<arrayLength_1;i++){
 
         TTree* tree = (TTree*)file_1->Get(Form("Run_%d",All_runs_1[i]));
+        TTree* tree_random = (TTree*)file_1->Get(Form("Run_%d_random",All_runs_1[i]));
 
         Double_t phi, hel;
         tree->SetBranchAddress("phi", &phi);
         tree->SetBranchAddress("hel", &hel);
 
+        Double_t phi_random, hel_random;
+        tree_random->SetBranchAddress("phi", &phi);
+        tree_random->SetBranchAddress("hel", &hel);
+
         Long64_t nEntries = tree->GetEntries();
-        for (Long64_t i = 0; i < nEntries; i++) {
-            tree->GetEntry(i);
+        for (Long64_t k = 0; k < nEntries; k++) {
+            tree->GetEntry(k);
 
             h_phi->Fill(phi);
             if(hel>0.) h_phi_pos->Fill(phi);
@@ -542,16 +606,17 @@ void pi0_test(){
 
             Int_t BinNo = int(ceil(phi/Bin_length));
             Asymmetry_up[BinNo-1] += hel;
-            Asymmetry_down[BinNo-1] += 1.;
-
+            Asymmetry_down[BinNo-1] += 1.*fabs(hel);
         }
 
-        for(int i=0;i<NofBins_phi;i++){
-            Asymmetry[i] = Asymmetry_up[i]/Asymmetry_down[i];
-            h_asymmetry->SetBinContent(i+1,Asymmetry[i]);
-            h_asymmetry->SetBinError(i+1,sqrt((1-pow(Asymmetry[i],2))/Asymmetry_down[i]));
-            h_asymmetry_diff->SetBinContent(i+1,Asymmetry_up[i]);
-        }
+        // Long64_t nEntries_random = tree_random->GetEntries();
+        // for (Long64_t k = 0; k < nEntries_random; k++) {
+        //     tree_random->GetEntry(k);
+
+        //     Int_t BinNo = int(ceil(phi/Bin_length));
+        //     Asymmetry_up[BinNo-1] -= hel;
+        //     Asymmetry_down[BinNo-1] -= 1.*fabs(hel);
+        // }
 
     }
 
@@ -560,14 +625,19 @@ void pi0_test(){
     for(int i=0;i<arrayLength_2;i++){
 
         TTree* tree = (TTree*)file_2->Get(Form("Run_%d",All_runs_2[i]));
+        TTree* tree_random = (TTree*)file_2->Get(Form("Run_%d_random",All_runs_2[i]));
 
         Double_t phi, hel;
         tree->SetBranchAddress("phi", &phi);
         tree->SetBranchAddress("hel", &hel);
 
+        Double_t phi_random, hel_random;
+        tree_random->SetBranchAddress("phi", &phi);
+        tree_random->SetBranchAddress("hel", &hel);
+
         Long64_t nEntries = tree->GetEntries();
-        for (Long64_t i = 0; i < nEntries; i++) {
-            tree->GetEntry(i);
+        for (Long64_t k = 0; k < nEntries; k++) {
+            tree->GetEntry(k);
 
             h_phi->Fill(phi);
             if(hel>0.) h_phi_pos->Fill(phi);
@@ -576,17 +646,17 @@ void pi0_test(){
 
             Int_t BinNo = int(ceil(phi/Bin_length));
             Asymmetry_up[BinNo-1] += hel;
-            Asymmetry_down[BinNo-1] += 1.;
-
+            Asymmetry_down[BinNo-1] += 1.*fabs(hel);
         }
 
-        for(int i=0;i<NofBins_phi;i++){
-            Asymmetry[i] = Asymmetry_up[i]/Asymmetry_down[i];
-            h_asymmetry->SetBinContent(i+1,Asymmetry[i]);
-            h_asymmetry->SetBinError(i+1,sqrt((1-pow(Asymmetry[i],2))/Asymmetry_down[i]));
-            h_asymmetry_diff->SetBinContent(i+1,Asymmetry_up[i]);
-        }
+        // Long64_t nEntries_random = tree_random->GetEntries();
+        // for (Long64_t k = 0; k < nEntries_random; k++) {
+        //     tree_random->GetEntry(k);
 
+        //     Int_t BinNo = int(ceil(phi/Bin_length));
+        //     Asymmetry_up[BinNo-1] -= hel;
+        //     Asymmetry_down[BinNo-1] -= 1.*fabs(hel);
+        // }
     }
 
     // OUT  LH2  18.72
@@ -594,14 +664,20 @@ void pi0_test(){
     for(int i=0;i<arrayLength_5;i++){
 
         TTree* tree = (TTree*)file_5->Get(Form("Run_%d",All_runs_5[i]));
+        TTree* tree_random = (TTree*)file_5->Get(Form("Run_%d_random",All_runs_5[i]));
 
         Double_t phi, hel;
         tree->SetBranchAddress("phi", &phi);
         tree->SetBranchAddress("hel", &hel);
 
+
+        Double_t phi_random, hel_random;
+        tree_random->SetBranchAddress("phi", &phi);
+        tree_random->SetBranchAddress("hel", &hel);
+
         Long64_t nEntries = tree->GetEntries();
-        for (Long64_t i = 0; i < nEntries; i++) {
-            tree->GetEntry(i);
+        for (Long64_t k = 0; k < nEntries; k++) {
+            tree->GetEntry(k);
 
             h_phi->Fill(phi);
             if(hel>0.) h_phi_pos->Fill(phi);
@@ -610,34 +686,39 @@ void pi0_test(){
 
             Int_t BinNo = int(ceil(phi/Bin_length));
             Asymmetry_up[BinNo-1] += hel;
-            Asymmetry_down[BinNo-1] += 1.;
-
+            Asymmetry_down[BinNo-1] += 1.*fabs(hel);
         }
 
-        for(int i=0;i<NofBins_phi;i++){
-            Asymmetry[i] = Asymmetry_up[i]/Asymmetry_down[i];
-            h_asymmetry->SetBinContent(i+1,Asymmetry[i]);
-            h_asymmetry->SetBinError(i+1,sqrt((1-pow(Asymmetry[i],2))/Asymmetry_down[i]));
-            h_asymmetry_diff->SetBinContent(i+1,Asymmetry_up[i]);
-        }
+        // Long64_t nEntries_random = tree_random->GetEntries();
+        // for (Long64_t k = 0; k < nEntries_random; k++) {
+        //     tree_random->GetEntry(k);
 
+        //     Int_t BinNo = int(ceil(phi/Bin_length));
+        //     Asymmetry_up[BinNo-1] -= hel;
+        //     Asymmetry_down[BinNo-1] -= 1.*fabs(hel);
+        // }
     }
-    // */
+    */
 
-    /*
+    // /*
     // IN  LD2  18.72
     TFile* file_3 = TFile::Open("./pi0/pi0_multiruns_3.root", "READ");
     for(int i=0;i<arrayLength_3;i++){
 
         TTree* tree = (TTree*)file_3->Get(Form("Run_%d",All_runs_3[i]));
+        TTree* tree_random = (TTree*)file_3->Get(Form("Run_%d_random",All_runs_3[i]));
 
         Double_t phi, hel;
         tree->SetBranchAddress("phi", &phi);
         tree->SetBranchAddress("hel", &hel);
 
+        Double_t phi_random, hel_random;
+        tree_random->SetBranchAddress("phi", &phi);
+        tree_random->SetBranchAddress("hel", &hel);
+
         Long64_t nEntries = tree->GetEntries();
-        for (Long64_t i = 0; i < nEntries; i++) {
-            tree->GetEntry(i);
+        for (Long64_t k = 0; k < nEntries; k++) {
+            tree->GetEntry(k);
 
             h_phi->Fill(phi);
             if(hel>0.) h_phi_pos->Fill(phi);
@@ -646,16 +727,17 @@ void pi0_test(){
 
             Int_t BinNo = int(ceil(phi/Bin_length));
             Asymmetry_up[BinNo-1] += hel;
-            Asymmetry_down[BinNo-1] += 1.;
-
+            Asymmetry_down[BinNo-1] += 1.*fabs(hel);
         }
 
-        for(int i=0;i<NofBins_phi;i++){
-            Asymmetry[i] = Asymmetry_up[i]/Asymmetry_down[i];
-            h_asymmetry->SetBinContent(i+1,Asymmetry[i]);
-            h_asymmetry->SetBinError(i+1,sqrt((1-pow(Asymmetry[i],2))/Asymmetry_down[i]));
-            h_asymmetry_diff->SetBinContent(i+1,Asymmetry_up[i]);
-        }
+        // Long64_t nEntries_random = tree_random->GetEntries();
+        // for (Long64_t k = 0; k < nEntries_random; k++) {
+        //     tree_random->GetEntry(k);
+
+        //     Int_t BinNo = int(ceil(phi/Bin_length));
+        //     Asymmetry_up[BinNo-1] -= hel;
+        //     Asymmetry_down[BinNo-1] -= 1.*fabs(hel);
+        // }
 
     }
 
@@ -664,14 +746,19 @@ void pi0_test(){
     for(int i=0;i<arrayLength_4;i++){
 
         TTree* tree = (TTree*)file_4->Get(Form("Run_%d",All_runs_4[i]));
+        TTree* tree_random = (TTree*)file_4->Get(Form("Run_%d_random",All_runs_4[i]));
 
         Double_t phi, hel;
         tree->SetBranchAddress("phi", &phi);
         tree->SetBranchAddress("hel", &hel);
 
+        Double_t phi_random, hel_random;
+        tree_random->SetBranchAddress("phi", &phi);
+        tree_random->SetBranchAddress("hel", &hel);
+
         Long64_t nEntries = tree->GetEntries();
-        for (Long64_t i = 0; i < nEntries; i++) {
-            tree->GetEntry(i);
+        for (Long64_t k = 0; k < nEntries; k++) {
+            tree->GetEntry(k);
 
             h_phi->Fill(phi);
             if(hel>0.) h_phi_pos->Fill(phi);
@@ -680,19 +767,27 @@ void pi0_test(){
 
             Int_t BinNo = int(ceil(phi/Bin_length));
             Asymmetry_up[BinNo-1] += hel;
-            Asymmetry_down[BinNo-1] += 1.;
-
+            Asymmetry_down[BinNo-1] += 1.*fabs(hel);
         }
 
-        for(int i=0;i<NofBins_phi;i++){
-            Asymmetry[i] = Asymmetry_up[i]/Asymmetry_down[i];
-            h_asymmetry->SetBinContent(i+1,Asymmetry[i]);
-            h_asymmetry->SetBinError(i+1,sqrt((1-pow(Asymmetry[i],2))/Asymmetry_down[i]));
-            h_asymmetry_diff->SetBinContent(i+1,Asymmetry_up[i]);
-        }
+        // Long64_t nEntries_random = tree_random->GetEntries();
+        // for (Long64_t k = 0; k < nEntries_random; k++) {
+        //     tree_random->GetEntry(k);
+
+        //     Int_t BinNo = int(ceil(phi/Bin_length));
+        //     Asymmetry_up[BinNo-1] -= hel;
+        //     Asymmetry_down[BinNo-1] -= 1.*fabs(hel);
+        // }
 
     }
-    */
+    // */
+
+    for(int i=0;i<NofBins_phi;i++){
+        Asymmetry[i] = Asymmetry_up[i]/Asymmetry_down[i];
+        h_asymmetry->SetBinContent(i+1,Asymmetry[i]);
+        h_asymmetry->SetBinError(i+1,sqrt((1-pow(Asymmetry[i],2))/Asymmetry_down[i]));
+        h_asymmetry_diff->SetBinContent(i+1,Asymmetry_up[i]);
+    }
 
     TCanvas *c_phi = new TCanvas("c_phi","c_phi",1200,800);
     h_phi->Draw();
@@ -720,18 +815,19 @@ void pi0_test(){
     h_asymmetry_diff->Draw();
     c_asymmetry_diff->SaveAs("./pi0/phi_asymmetry_diff.pdf");
 
-    file_0->Close();
-    file_1->Close();
-    file_2->Close();
-    file_5->Close();
-    delete file_0;
-    delete file_1;
-    delete file_2;
-    delete file_5;
-    // file_3->Close();
-    // file_4->Close();
-    // delete file_3;
-    // delete file_4;
+    // file_0->Close();
+    // file_1->Close();
+    // file_2->Close();
+    // file_5->Close();
+    // delete file_0;
+    // delete file_1;
+    // delete file_2;
+    // delete file_5;
+
+    file_3->Close();
+    file_4->Close();
+    delete file_3;
+    delete file_4;
 }
 
 
