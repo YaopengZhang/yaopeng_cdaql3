@@ -59,6 +59,7 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "pi0_charge_fast.C": "cpp",
-        "plot.C": "cpp"
+        "plot.C": "cpp",
+        "plot_ped_diff.C": "cpp"
     }
 }
